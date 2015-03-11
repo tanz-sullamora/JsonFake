@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<title>JsonFake demo</title>
+		<script src="js/jsonfake.js"></script>
+		<script>
+			window.onload = function() {
+				var jf = new JsonFake();
+
+				function regenerate() {
+					document.getElementById('json-code').innerHTML = JSON.stringify(jf.generate(document.getElementById('max-depth').value, document.getElementById('max-length').value), null, 4);
+				};
+
+				document.getElementById('generate-btn').addEventListener('click', regenerate);
+				regenerate();
+			};
+		</script>
+	</head>
+	<body>
+		<label>Max depth:</label> <input type="text" id="max-depth" size="3" value="3">
+		<label>Max array length:</label> <input type="text" id="max-length" size="3" value="5">
+		<button type="submit" id="generate-btn">Generate</button>
+		<a href="https://github.com/tanz-sullamora/JsonFake">GitHub</a>
+		<pre id="json-code"></pre>
+	</body>
+</html>
